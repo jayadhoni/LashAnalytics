@@ -5,9 +5,24 @@
     }
     .dateitem{
       z-index : initial;
+      padding: 6px 0 5px 16px;
+      margin: 0px;
     }
     .item-radio .item-content{
       padding-right : 50px;
+      text-overflow : initial;
+    }
+    .radio-horiz{
+      width : 50%;
+      position : absolute;
+      right : 0;
+    }
+    .item .item-radio{
+        width : 50%;
+        display : inline-block;
+    }
+    .item-radio .radio-icon{
+        left : 30px;
     }
     th{
       vertical-align: top;
@@ -44,10 +59,10 @@
           </select>
         </label>
         <label class="item item-input">
-          <div class="input-label">
+          <div class="input-label" style = "overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
             Need Reminder ? 
           </div>
-          <div  class="button-bar">
+          <div  class="radio-horiz">
             <ion-radio ng-model="formData.remainder" ng-value="'yes'">Yes</ion-radio>
             <ion-radio ng-model="formData.remainder" ng-value="'no'">No</ion-radio>
           </div>
