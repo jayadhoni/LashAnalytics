@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.ionicframework.angularsample338218" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Lash Analytics</name>
+    <description>
+We know the importance Analytics. So, our dedicated team presenting you this app in with you can analyseall you data using different modeling tools like Pie, Bar, Line charts and Scatter diagrams.
+    </description>
+    <author email="support@hcl.com" href="http://www.hcl.com/">
+      HCL Technologies
+    </author>
+    <platform name="android">
+        <preference name="Fullscreen" value="true" />
+    </platform>
+    <preference name="orientation" value="portrait" />
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="SplashScreenDelay" value="500" />
+    <preference name="FadeSplashScreenDuration" value="1000" />
+    <preference name="android-minSdkVersion" value="16" />
+    <preference name="BackupWebStorage" value="none" />
+    <feature name="StatusBar">
+        <param name="ios-package" onload="true" value="CDVStatusBar" />
+    </feature>
+    <engine name="android" spec="~6.1.2" />
+    <platform name="android">
+        <icon density="ldpi" src="res/analytics_icon.png" />
+        <icon density="mdpi" src="res/analytics_icon.png" />
+        <icon density="hdpi" src="res/analytics_icon.png" />
+        <icon density="xhdpi" src="res/analytics_icon.png" />
+    </platform>
+    <platform name="ios">
+        <icon height="180" src="res/analytics_icon.png" width="180" />
+        <icon height="60" src="res/analytics_icon.png" width="60" />
+        <icon height="120" src="res/analytics_icon.png" width="120" />
+        <icon height="76" src="res/analytics_icon.png" width="76" />
+        <icon height="152" src="res/analytics_icon.png" width="152" />
+        <icon height="40" src="res/analytics_icon.png" width="40" />
+        <icon height="80" src="res/analytics_icon.png" width="80" />
+        <icon height="57" src="res/analytics_icon.png" width="57" />
+        <icon height="114" src="res/analytics_icon.png" width="114" />
+        <icon height="72" src="res/analytics_icon.png" width="72" />
+        <icon height="144" src="res/analytics_icon.png" width="144" />
+        <icon height="29" src="res/analytics_icon.png" width="29" />
+        <icon height="58" src="res/analytics_icon.png" width="58" />
+        <icon height="50" src="res/analytics_icon.png" width="50" />
+        <icon height="100" src="res/analytics_icon.png" width="100" />
+    </platform>
+    <engine name="ios" spec="~4.3.1" />
+</widget>

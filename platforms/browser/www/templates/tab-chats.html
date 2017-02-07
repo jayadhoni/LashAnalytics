@@ -1,0 +1,88 @@
+<ion-view  view-title="Apply Filters">
+  <style>
+    .dateitem p, .dateitem{
+      overflow : visible;
+    }
+    .dateitem{
+      z-index : initial;
+    }
+    .item-radio .item-content{
+      padding-right : 50px;
+    }
+    th{
+      vertical-align: top;
+    }
+  </style>
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-back-button style = "font-size: 17px; font-weight: 500">
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content class="greyBg">
+    
+    <form>
+      <div class="list padding">
+
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Product
+          </div>
+          <select ng-model="formData.product" ng-options="product.Product for product in productData | orderBy:'Product'" ng-change = "productChange()">
+          </select>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Enrollment Outcome
+          </div>
+          <select ng-model="formData.outcome" ng-options="outcome.Enrollment_Outcome_Recived for outcome in enrollementOutcomeUnique | orderBy:'Enrollment_Outcome_Recived'" ng-change = "enrollemntOutcomeChange()">
+          </select>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Enrollment Referral
+          </div>
+          <select ng-model="formData.referral" ng-options="referral.Enrollment_Referral_Source for referral in enrollementReferralUnique | orderBy:'Enrollment_Referral_Source'">
+          </select>
+        </label>
+        <label class="item item-input">
+          <div class="input-label">
+            Need Reminder ? 
+          </div>
+          <div  class="button-bar">
+            <ion-radio ng-model="formData.remainder" ng-value="'yes'">Yes</ion-radio>
+            <ion-radio ng-model="formData.remainder" ng-value="'no'">No</ion-radio>
+          </div>
+          
+        </label>
+        <label class="item item-input item-select" ng-show = "formData.remainder == 'yes'">
+          <div class="input-label">
+            Reminder
+          </div>
+          <select ng-model="formData.remaindertiming" ng-init = "formData.remaindertiming = reminders[0]" ng-options="reminder.value for reminder in reminders"></select>
+        </label>
+        <ion-item class = "dateitem" ng-show = "formData.remainder == 'yes'">
+          <ion-label>From Date</ion-label>
+          <p class="input-group">
+            <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="formData.fromDate" is-open="popup1.opened" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" show-button-bar = "false"/>
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+          </p>
+        </ion-item>
+        <ion-item class = "dateitem" ng-show = "formData.remainder == 'yes'">
+          <ion-label>To Date</ion-label>
+          <p class="input-group">
+            <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="formData.toDate" is-open="popup2.opened" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" show-button-bar = "false"/>
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+          </p>
+        </ion-item>
+      </div>
+
+      <div class="padding">
+        <button class="button button-block button-positive" ng-click="submit()">Generate Reports</button>
+      </div>
+    </form>
+
+  </ion-content>
+</ion-view>

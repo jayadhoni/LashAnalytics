@@ -1,0 +1,57 @@
+<ion-view  view-title="Apply Filters">
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content class="greyBg">
+    <br>
+    <form>
+      <div class="list padding">
+
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Product
+          </div>
+          <select ng-model="formData.product" ng-options="product.Product for product in productData" ng-change = "productChange()">
+          </select>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Enrollment Outcome
+          </div>
+          <select ng-model="formData.outcome" ng-options="outcome.Enrollment_Outcome_Recived for outcome in enrollementOutcomeUnique">
+          </select>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Enrollment Referral
+          </div>
+          <select ng-model="formData.referral" ng-options="referral.Enrollment_Referral_Source for referral in enrollementReferralUnique">
+          </select>
+        </label>
+        <label class="item item-input">
+          <div class="input-label">
+            Need Remainder ? 
+          </div>
+          <ion-list>
+            <ion-radio ng-model="formData.remainder" ng-value="'yes'">Yes</ion-radio>
+            <ion-radio ng-model="formData.remainder" ng-value="'no'">No</ion-radio>
+          </ion-list>
+          
+        </label>
+        <label class="item item-input item-select" ng-show = "formData.remainder == 'yes'">
+          <div class="input-label">
+            remainder
+          </div>
+          <select ng-model="formData.remaindertiming" ng-options="remainder.value for remainder in remainders"></select>
+        </label>
+
+      </div>
+
+      <div class="padding">
+        <button class="button button-block button-positive" ng-click="submit()">Generate Reports</button>
+      </div>
+    </form>
+
+  </ion-content>
+</ion-view>

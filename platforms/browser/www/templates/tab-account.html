@@ -1,0 +1,50 @@
+
+<ion-view view-title="Patient Enrollement Report">
+  <ion-content chart-div class="greyBg">
+    <ion-slide-box on-slide-changed="slideChanged(index)">
+      <ion-slide>
+        <fusioncharts 
+          width="100%" 
+          height="{{chartheight}}"
+          type="column3d"
+          datasource="{{EnrollmentStatus}}"
+        ></fusioncharts>
+      </ion-slide>
+      <ion-slide>
+        <fusioncharts 
+          width="100%" 
+          height="{{chartheight}}"
+          type="column3d"
+          datasource="{{TopTreatingSites}}"
+        ></fusioncharts>
+      </ion-slide>
+      <ion-slide>
+        <fusioncharts 
+          width="100%" 
+          height="{{chartheight}}"
+          type="pie3d"
+          datasource="{{EnrollementOutcome}}"
+        ></fusioncharts>
+      </ion-slide>
+      <ion-slide>
+        <div fusioncharts
+        width="100%" 
+        height="{{chartheight}}"
+        type="msline"
+        chart="{{attrs}}"
+        categories="{{categories}}"
+        dataset="{{dataset}}"
+        ></div>
+      </ion-slide>
+      <ion-slide>
+        <fusioncharts 
+          width="100%" 
+          height="{{chartheight}}"
+          type="column3d"
+          datasource="{{myDataSource}}"
+        ></fusioncharts>
+      </ion-slide>
+    </ion-slide-box>
+  </ion-content>
+</ion-view>
+

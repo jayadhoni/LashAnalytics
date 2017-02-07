@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.ionicframework.angularsample338218" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Lash Analytics</name>
+    <description>
+We know the importance Analytics. So, our dedicated team presenting you this app in with you can analyseall you data using different modeling tools like Pie, Bar, Line charts and Scatter diagrams.
+    </description>
+    <author email="support@hcl.com" href="http://www.hcl.com/">
+      HCL Technologies
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="orientation" value="portrait" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="UIWebViewBounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="SplashScreenDelay" value="500" />
+    <preference name="FadeSplashScreenDuration" value="1000" />
+    <preference name="android-minSdkVersion" value="16" />
+    <preference name="BackupWebStorage" value="none" />
+</widget>

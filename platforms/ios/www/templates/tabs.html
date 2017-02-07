@@ -1,0 +1,49 @@
+<ion-side-menus  enable-menu-with-back-views="false">
+  <style>
+      .tick{
+        background-image: url(../img/tick.png);
+        /* background-size: 100%; */
+        background-repeat: no-repeat;
+        background-position: 10px 20px;
+        padding-left: 40px;
+      }
+
+    </style>
+  <ion-side-menu-content drag-content="false">
+
+    <ion-nav-bar class="bar-positive">
+
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="right">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu  drag-content="true" class="greyMenu" side="right">
+    <ion-header-bar class="bar-stable greyMenu">
+      <h1 class="title greyMenu">Menu</h1>
+    </ion-header-bar>
+    <ion-content>
+      <ul  class="list greyMenu">
+        <!-- Note each link has the 'menu-close' attribute so the menu auto closes when clicking on one of these links -->
+        <!--<a  style="font-size: 20px" href="#/event/home" class="item greyMenu" menu-close>-->
+        <!--<i  style="font-size: 32px" class="icon ion-ios-home-outline"></i>-->
+        <!--&nbsp;&nbsp;-->
+          <!--Home</a>-->
+        <a href="#/home" class="item greyMenu" menu-close>Home</a>
+        <a href="" ng-click = "goto(0)" class="item greyMenu" ng-class="{'tick' : index == 0}" menu-close>Enrollment Status</a>
+        <a href="" ng-click = "goto(1)" class="item greyMenu" ng-class="{'tick' : index == 1}" menu-close>Enrollment Outcome</a>
+        <a href="" ng-click = "goto(2)" class="item greyMenu" ng-class="{'tick' : index == 2}" menu-close>Top Treating Sites</a>
+        <a href="" ng-click = "goto(3)" class="item greyMenu" ng-class="{'tick' : index == 3}" menu-close>Referral Source</a>
+        <a href="" ng-click = "goto(4)" class="item greyMenu" ng-class="{'tick' : index == 4}" menu-close>Service Issues</a>
+      </ul>
+    </ion-content>
+  </ion-side-menu>
+
+</ion-side-menus>
