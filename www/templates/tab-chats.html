@@ -1,46 +1,108 @@
-
-<ion-view view-title="Lash Analytics">
+<ion-view  view-title="Apply Filters">
   <style>
-    .min_h_w{
-      min-height :120px;
+    .dateitem p, .dateitem{
+      overflow : visible;
     }
-    .circle {
-      border-radius:50%;
-      width: 100%;
-      height:100%;
-
-      text-align: center;
-      border: 2px solid #fff;
+    .dateitem{
+      z-index : initial;
+      padding: 6px 0 5px 16px;
+      margin: 0px;
     }
-    .img_Content{
-      margin-top: -20%;
+    .item-radio .item-content{
+      padding-right : 50px;
+      text-overflow : initial;
+    }
+    .radio-horiz{
+      width : 50%;
+      position : absolute;
+      right : 0;
+    }
+    .item .item-radio{
+        width : 50%;
+        display : inline-block;
+    }
+    .item-radio .radio-icon{
+        left : 30px;
+    }
+    th{
+      vertical-align: top;
     }
   </style>
   <ion-nav-bar class="bar-positive" align-title="center">
-    <ion-nav-back-button>
+    <ion-nav-back-button style = "font-size: 17px; font-weight: 500">
     </ion-nav-back-button>
+    <ion-nav-buttons side="right">
+      <button class="button" ng-click="reset()">
+        Reset
+      </button>
+    </ion-nav-buttons>
   </ion-nav-bar>
-  <ion-content class="padding">
-    <div class="min_h_w"></div>
-    <div class="row">
-      <div  class="col col-50" style="margin-top: 5%;">
-        <a href="#/check-in" class="circleimage1">
-          <img style="width: 90%" src="img/btn_self_discovery@2x.png" />
-        </a>
+  <ion-content class="greyBg">
+    
+    <form>
+      <div class="list padding">
+
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Product
+          </div>
+          <select ng-model="formData.product" ng-options="product.Product for product in productData | orderBy:'Product'" ng-change = "productChange()">
+          </select>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Enrollment Outcome
+          </div>
+          <select ng-model="formData.outcome" ng-options="outcome.Enrollment_Outcome_Recived for outcome in enrollementOutcomeUnique | orderBy:'Enrollment_Outcome_Recived'" ng-change = "enrollemntOutcomeChange()">
+          </select>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Enrollment Referral
+          </div>
+          <select ng-model="formData.referral" ng-options="referral.Enrollment_Referral_Source for referral in enrollementReferralUnique | orderBy:'Enrollment_Referral_Source'">
+          </select>
+        </label>
+        <label class="item item-input">
+          <div class="input-label" style = "overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+            Need Reminder ? 
+          </div>
+          <div  class="radio-horiz">
+            <ion-radio ng-model="formData.remainder" ng-value="'yes'">Yes</ion-radio>
+            <ion-radio ng-model="formData.remainder" ng-value="'no'">No</ion-radio>
+          </div>
+          
+        </label>
+        <label class="item item-input item-select" ng-show = "formData.remainder == 'yes'">
+          <div class="input-label">
+            Reminder
+          </div>
+          <select ng-model="formData.remaindertiming" ng-init = "formData.remaindertiming = reminders[0]" ng-options="reminder.value for reminder in reminders"></select>
+        </label>
+        <ion-item class = "dateitem" ng-show = "formData.remainder == 'yes'">
+          <ion-label>From Date</ion-label>
+          <p class="input-group">
+            <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="formData.fromDate" is-open="popup1.opened" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" show-button-bar = "false"/>
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+          </p>
+        </ion-item>
+        <ion-item class = "dateitem" ng-show = "formData.remainder == 'yes'">
+          <ion-label>To Date</ion-label>
+          <p class="input-group">
+            <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="formData.toDate" is-open="popup2.opened" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" show-button-bar = "false"/>
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+          </p>
+        </ion-item>
       </div>
-      <div  class="col col-50" style="margin-top: -20%;">
-        <a href="#/check-in">
-          <img style="width: 90%" src="img/btn_give_feedback@2x.png">
-        </a>
+
+      <div class="padding">
+        <button class="button button-block button-positive" ng-click="submit()">Generate Reports</button>
       </div>
-    </div>
-    <div class="row">
-      <div class="col col-33"></div>
-      <div  class="col col-50">
-        <a href="#/check-in">
-          <img style="width: 90%" src="img/btn_reports@2x.png">
-        </a>
-      </div>
-    </div>
+    </form>
+
   </ion-content>
 </ion-view>
