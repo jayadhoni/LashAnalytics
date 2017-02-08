@@ -28,9 +28,14 @@
       vertical-align: top;
     }
   </style>
-  <ion-nav-bar class="bar-positive">
+  <ion-nav-bar class="bar-positive" align-title="center">
     <ion-nav-back-button style = "font-size: 17px; font-weight: 500">
     </ion-nav-back-button>
+    <ion-nav-buttons side="right">
+      <button class="button" ng-click="reset()">
+        Reset
+      </button>
+    </ion-nav-buttons>
   </ion-nav-bar>
   <ion-content class="greyBg">
     
