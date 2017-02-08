@@ -86,14 +86,13 @@ angular.module('starter.controllers', []).controller('CheckinCtrl', function($sc
 
 
     $scope.reset  = function(){
-      $scope.formData = {"product" : $scope.productData[0] , "referral" : $scope.enrollementReferralUnique[0] , "outcome" : $scope.enrollementOutcomeUnique[0] , "remaindertiming" : $scope.reminders[0] , "remainder" : "no" , "fromDate" : new Date() , "toDate" : new Date() };
+      $scope.formData = {"product" : $scope.productData[$scope.productData.length - 1] , "referral" : $scope.enrollementReferralUnique[0] , "outcome" : $scope.enrollementOutcomeUnique[0] , "remaindertiming" : $scope.reminders[0] , "remainder" : "no" , "fromDate" : new Date() , "toDate" : new Date() };
     }
 
     $scope.reminders = [{'id' : 0 , 'value' : 'Daily'} , {'id' : 1 , 'value' : 'Weekly'} , {'id' : 2 , 'value' : 'Monthly'}];
 
     $scope.dateOptions = {
       formatYear: 'yy',
-      maxDate: new Date(),
       startingDay: 1
 
     };
