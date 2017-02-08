@@ -129,8 +129,7 @@ angular.module('starter.controllers', []).controller('CheckinCtrl', function($sc
       }
     }
     $scope.completeEnrollmentStatus =  $window._.where($scope.productData,{"Enrollment Status Received" : "Complete"});
-    $scope.pendingEnrollmentStatus =  $window._.where($scope.productData,{"Enrollment Status Received" : "Pending"});
-    $scope.terminatedEnrollmentStatus =  $window._.where($scope.productData,{"Enrollment Status Received" : "Terminated"});
+    $scope.progressEnrollmentStatus =  $window._.where($scope.productData,{"Enrollment Status Received" : "In Process"});
     $scope.receivedEnrollmentStatus =  $window._.where($scope.productData,{"Enrollment Status Received" : "Received"});
     $scope.hospitals = $window._.uniq($scope.productData, function(item, key) { 
         return item["Treating Site Name"];
@@ -146,16 +145,12 @@ angular.module('starter.controllers', []).controller('CheckinCtrl', function($sc
           value: $scope.completeEnrollmentStatus.length
       },
       {
-          label: "Pending",
-          value: $scope.pendingEnrollmentStatus.length
+          label: "In Progress",
+          value: $scope.progressEnrollmentStatus.length
       },
       {
           label: "Received",
           value: $scope.receivedEnrollmentStatus.length
-      },
-      {
-          label: "Terminated",
-          value: $scope.terminatedEnrollmentStatus.length
       }]
     };
     var TopTreatingSites = [];
